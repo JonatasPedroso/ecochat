@@ -11,12 +11,15 @@ import org.w3c.dom.*;
 
 public class Database {
     
+    //Variavel que armazena o caminho do arquivo
     public String filePath;
     
+    //Construtor
     public Database(String filePath){
         this.filePath = filePath;
     }
     
+    //Verifica se o usuário existe
     public boolean userExists(String username){
         
         try{
@@ -45,6 +48,7 @@ public class Database {
         }
     }
     
+    //Verifica se o login está correto (usuário e senha)
     public boolean checkLogin(String username, String password){
         
         if(!userExists(username)){ return false; }
@@ -76,6 +80,7 @@ public class Database {
         }
     }
     
+    //Adiciona um usuário
     public void addUser(String username, String password){
         
         try {

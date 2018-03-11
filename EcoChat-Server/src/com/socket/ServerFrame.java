@@ -14,12 +14,13 @@ public class ServerFrame extends javax.swing.JFrame {
     public String filePath = "D:/Data.xml";
     public JFileChooser fileChooser;
     
+    //Construtor do da tela do server
     public ServerFrame() {
         initComponents();     
         jTextField3.setEditable(false);
         jTextField3.setBackground(Color.WHITE);
         
-        fileChooser = new JFileChooser();
+        fileChooser = new JFileChooser();//Utilizado para escolher arquivos.
         jTextArea1.setEditable(false);
     }
     
@@ -104,11 +105,13 @@ public class ServerFrame extends javax.swing.JFrame {
         jButton1.setEnabled(false); jButton2.setEnabled(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    //Tenta conectar o server novamente caso seja diferente de null.
     public void RetryStart(int port){
         if(server != null){ server.stop(); }
         server = new SocketServer(this, port);
     }
     
+    //Botão com a ação de escolher um arquivo.
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         fileChooser.showDialog(this, "Select");
         File file = fileChooser.getSelectedFile();

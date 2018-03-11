@@ -12,7 +12,7 @@ class ServerThread extends Thread {
     public ObjectInputStream streamIn  =  null;
     public ObjectOutputStream streamOut = null;
     public ServerFrame ui;
-
+    
     public ServerThread(SocketServer _server, Socket _socket){  
     	super();
         server = _server;
@@ -21,6 +21,7 @@ class ServerThread extends Thread {
         ui = _server.ui;
     }
     
+    //Envia a mensagem escrita
     public void send(Message msg){
         try {
             streamOut.writeObject(msg);
@@ -31,6 +32,7 @@ class ServerThread extends Thread {
         }
     }
     
+    //Pega e retorna o ID.
     public int getID(){  
 	    return ID;
     }
@@ -77,6 +79,7 @@ public class SocketServer implements Runnable {
     public ServerFrame ui;
     public Database db;
 
+    //Construtor do server
     public SocketServer(ServerFrame frame){
        
         clients = new ServerThread[50];
@@ -95,6 +98,7 @@ public class SocketServer implements Runnable {
 	}
     }
     
+    //Construtor do server que recebe a porta.
     public SocketServer(ServerFrame frame, int Port){
        
         clients = new ServerThread[50];
@@ -113,6 +117,7 @@ public class SocketServer implements Runnable {
 	}
     }
 	
+    //Verifica se o server executou de forma correta, se não, tenta novamente.
     public void run(){  
 	while (thread != null){  
             try{  
@@ -141,6 +146,7 @@ public class SocketServer implements Runnable {
 	}
     }
     
+    //Encontra um cliente
     private int findClient(int ID){  
     	for (int i = 0; i < clientCount; i++){
         	if (clients[i].getID() == ID){
