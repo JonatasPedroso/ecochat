@@ -73,7 +73,7 @@ public class ServerFrame extends javax.swing.JFrame {
         jLabel2.setText("UNIP 2018 APS");
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel12.setText("Anderson, Eduardo, Jefferson, Jonatas");
+        jLabel12.setText("Anderson, Eduardo, Jeferson, Jonatas");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
