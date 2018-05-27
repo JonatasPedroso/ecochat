@@ -40,7 +40,7 @@ public class Upload implements Runnable{
             }
             Out.flush();
             
-            ui.jTextArea1.append("[Applcation > Me] : File upload complete\n");
+            ui.jTextArea1.append("[EcoServer > Me] : Arquivo Enviado com Sucesso!\n");
             ui.jButton5.setEnabled(true); ui.jButton6.setEnabled(true);
             ui.jTextField5.setVisible(true);
             

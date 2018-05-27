@@ -46,7 +46,7 @@ public class Download implements Runnable{
             
             Out.flush();
             
-            ui.jTextArea1.append("[Application > Me] : Download complete\n");
+            ui.jTextArea1.append("[EcoServer > Me] : Download Completo!\n");
             
             if(Out != null){ Out.close(); }
             if(In != null){ In.close(); }

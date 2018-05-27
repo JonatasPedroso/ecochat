@@ -1,6 +1,7 @@
 package com.socket;
 
 import com.ui.ChatFrame;
+import java.awt.Color;
 import java.io.*;
 import java.net.*;
 import java.util.Date;
@@ -60,11 +61,11 @@ public class SocketClient implements Runnable{
                     if(msg.content.equals("TRUE")){
                         ui.jButton2.setEnabled(false); ui.jButton3.setEnabled(false);                        
                         ui.jButton4.setEnabled(true); ui.jButton5.setEnabled(true);
-                        ui.jTextArea1.append("[SERVER > Me] : Login Successful\n");
+                        ui.jTextArea1.append("[EcoServer > Me] : Entrou com Sucesso!\n");
                         ui.jTextField3.setEnabled(false); ui.jPasswordField1.setEnabled(false);
                     }
                     else{
-                        ui.jTextArea1.append("[SERVER > Me] : Login Failed\n");
+                        ui.jTextArea1.append("[EcoServer > Me] : Erro ao Entrar!\n");
                     }
                 }
                 else if(msg.type.equals("test")){
@@ -89,15 +90,15 @@ public class SocketClient implements Runnable{
                     if(msg.content.equals("TRUE")){
                         ui.jButton2.setEnabled(false); ui.jButton3.setEnabled(false);
                         ui.jButton4.setEnabled(true); ui.jButton5.setEnabled(true);
-                        ui.jTextArea1.append("[SERVER > Me] : Singup Successful\n");
+                        ui.jTextArea1.append("[EcoServer > Me] : Registrado com Sucesso!\n");
                     }
                     else{
-                        ui.jTextArea1.append("[SERVER > Me] : Signup Failed\n");
+                        ui.jTextArea1.append("[EcoServer > Me] : Erro ao Registrar-se!\n");
                     }
                 }
                 else if(msg.type.equals("signout")){
                     if(msg.content.equals(ui.username)){
-                        ui.jTextArea1.append("["+ msg.sender +" > Me] : Bye\n");
+                        ui.jTextArea1.append("["+ msg.sender +" > Me] : Olá Seja Bem Vindo!\n");
                         ui.jButton1.setEnabled(true); ui.jButton4.setEnabled(false); 
                         ui.jTextField1.setEditable(true); ui.jTextField2.setEditable(true);
                         
@@ -109,12 +110,12 @@ public class SocketClient implements Runnable{
                     }
                     else{
                         ui.model.removeElement(msg.content);
-                        ui.jTextArea1.append("["+ msg.sender +" > All] : "+ msg.content +" has signed out\n");
+                        ui.jTextArea1.append("["+ msg.sender +" > All] : "+ msg.content +" Acabou de Sair!\n");
                     }
                 }
                 else if(msg.type.equals("upload_req")){
                     
-                    if(JOptionPane.showConfirmDialog(ui, ("Accept '"+msg.content+"' from "+msg.sender+" ?")) == 0){
+                    if(JOptionPane.showConfirmDialog(ui, ("Aceitar '"+msg.content+"' do "+msg.sender+" ?")) == 0){
                         
                         JFileChooser jf = new JFileChooser();
                         jf.setSelectedFile(new File(msg.content));
@@ -147,16 +148,16 @@ public class SocketClient implements Runnable{
                         t.start();
                     }
                     else{
-                        ui.jTextArea1.append("[SERVER > Me] : "+msg.sender+" rejected file request\n");
+                        ui.jTextArea1.append("[EcoServer > Me] : "+msg.sender+" Rejeitar Arquivo Requisitado?\n");
                     }
                 }
                 else{
-                    ui.jTextArea1.append("[SERVER > Me] : Unknown message type\n");
+                    ui.jTextArea1.append("[EcoServer > Me] : Tipo de mensagem desconhecida!\n");
                 }
             }
             catch(Exception ex) {
                 keepRunning = false;
-                ui.jTextArea1.append("[Application > Me] : Connection Failure\n");
+                ui.jTextArea1.append("[EcoServer > Me] : Conexão Falhou! \nTente Novamente!\n");
                 ui.jButton1.setEnabled(true); ui.jTextField1.setEditable(true); ui.jTextField2.setEditable(true);
                 ui.jButton4.setEnabled(false); ui.jButton5.setEnabled(false); ui.jButton5.setEnabled(false);
                 
