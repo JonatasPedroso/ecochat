@@ -381,7 +381,7 @@ public class ChatFrame extends javax.swing.JFrame {
                 client = new SocketClient(this);
                 clientThread = new Thread(client);
                 clientThread.start();
-                client.send(new Message("test", "testUser", "testContent", "SERVER"));
+                client.send(new Message("teste", "testando Usuario", "conteudo de teste", "SERVIDOR"));
             }
             catch(Exception ex){
                 JOptionPane.showMessageDialog(null, "Não foi Possivel Conectar com o Servidor \n\n Verifique se Está Correto: \n Servidor:   " + serverAddr + "\n Porta:        " + port + "\n\n Tente Novamente! ", "Encontramos Alguma Coisa Errada!", JOptionPane.WARNING_MESSAGE);
@@ -394,7 +394,7 @@ public class ChatFrame extends javax.swing.JFrame {
         password = jPasswordField1.getText();
         
         if(!username.isEmpty() && !password.isEmpty()){
-            client.send(new Message("login", username, password, "SERVER"));
+            client.send(new Message("login", username, password, "SERVIDOR"));
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -404,7 +404,7 @@ public class ChatFrame extends javax.swing.JFrame {
         
         if(!msg.isEmpty() && !target.isEmpty()){
             jTextField4.setText("");
-            client.send(new Message("message", username, msg, target));
+            client.send(new Message("mensagem", username, msg, target));
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -413,7 +413,7 @@ public class ChatFrame extends javax.swing.JFrame {
         password = jPasswordField1.getText();
         
         if(!username.isEmpty() && !password.isEmpty()){
-            client.send(new Message("signup", username, password, "SERVER"));
+            client.send(new Message("inscrever-se", username, password, "SERVER"));
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
