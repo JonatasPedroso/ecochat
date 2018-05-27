@@ -23,8 +23,11 @@ public class History {
     public void addMessage(Message msg, String time){
         
         try {
+            // Obter uma nova instância de um DocumentBuilderFactory.
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+            // Cria uma nova instância de um DocumentBuilder usando os parâmetros atualmente configurados.
             DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+            // Aqui ta fazendo conversão
             Document doc = docBuilder.parse(filePath);
  
             Node data = doc.getFirstChild();
