@@ -44,7 +44,7 @@ public class ServerFrame extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("jServer");
+        setTitle("Eco Server");
 
         jButton1.setText(" Inicie o servidor");
         jButton1.setEnabled(false);
@@ -114,6 +114,8 @@ public class ServerFrame extends javax.swing.JFrame {
                     .addComponent(jLabel12))
                 .addContainerGap())
         );
+
+        getAccessibleContext().setAccessibleName("Eco Server");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
